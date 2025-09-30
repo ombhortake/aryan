@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather+ | Smart Weather Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Weather+ 🌦️</h1>
+        <div class="search-box">
+            <input type="text" 
+                   id="city-input" 
+                   placeholder="Enter city name"
+                   aria-label="City input">
+            <button id="search-btn">
+                <i class="wi wi-day-sunny"></i> Search
+            </button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="hidden">
+            <div class="loader"></div>
+            <p>Analyzing weather patterns...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="hidden error">
+            <i class="wi wi-alien"></i>
+            <p class="error-msg"></p>
+        </div>
+
+        <!-- Main Weather Card -->
+        <div id="weather-data" class="hidden">
+            <div class="weather-header">
+                <h2 id="city-name">City Name</h2>
+                <div id="current-condition">
+                    <i class="wi" id="condition-icon"></i>
+                    <span id="condition-text"></span>
+                </div>
+            </div>
+
+            <div class="weather-grid">
+                <!-- Temperature Section -->
+                <div class="weather-card main-temp">
+                    <h3>Temperature</h3>
+                    <div class="temp-container">
+                        <span id="temp">--</span>°C
+                        <div class="feels-like">
+                            Feels like <span id="feels-like">--</span>°C
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AQI Section -->
+                <div class="weather-card aqi">
+                    <h3>Air Quality</h3>
+                    <div class="aqi-display">
+                        <span id="aqi-value">--</span>
+                        <div class="aqi-description">
+                            <span id="aqi-text">--</span>
+                            <div id="aqi-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UV Index Section -->
+                <div class="weather-card uv">
+                    <h3>UV Index</h3>
+                    <div class="uv-display">
+                        <span id="uv-value">--</span>
+                        <div class="uv-progress">
+                            <div id="uv-bar"></div>
+                        </div>
+                        <span id="uv-risk" class="risk-level"></span>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="weather-card extras">
+                    <div class="extra-item">
+                        <i class="wi wi-rain"></i>
+                        Precipitation: <span id="precipitation">--</span>mm
+                    </div>
+                    <div class="extra-item">
+                        <i class="wi wi-strong-wind"></i>
+                        Wind: <span id="wind">--</span> km/h
+                    </div>
+                    <div class="extra-item">
+                        <i class="wi wi-humidity"></i>
+                        Humidity: <span id="humidity">--</span>%
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Unique Feature: Clothing Recommendation -->
+            <div class="recommendation">
+                <i class="wi wi-thermometer-exterior"></i>
+                <p id="clothing-tip">Loading clothing recommendations...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
